@@ -12,9 +12,9 @@ export class Markdown extends React.Component{
     const tokens = marked.lexer(this.props.text, {sanitize: true})
     const elements = new ReactParser({renderer}).parse(tokens)
     return (
-      <div className={this.props.className}>
+      <span className={this.props.className}>
         {elements.map((e,i)=> { return React.cloneElement(e, {key: i+1})}) }
-      </div>
+      </span>
     )
   }
 }
